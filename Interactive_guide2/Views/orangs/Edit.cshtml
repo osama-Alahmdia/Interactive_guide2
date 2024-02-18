@@ -1,0 +1,59 @@
+﻿@model Interactive_guide2.Models.orangs
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>orangs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="info" class="control-label"></label>
+                <input asp-for="info" class="form-control" />
+                <span asp-validation-for="info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="poss_dis" class="control-label"></label>
+                <input asp-for="poss_dis" class="form-control" />
+                <span asp-validation-for="poss_dis" class="text-danger"></span>
+            </div>
+
+            <img src="~/images/@Model.imgfile" height="150" />
+
+            <input type="hidden" asp-for="imgfile" />
+
+            <div class="form-group">
+                <label class="control-label">Pic</label>
+                <input type="file" class="form-control" name="file" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">video</label>
+                <input type="file" class="form-control" name="files" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

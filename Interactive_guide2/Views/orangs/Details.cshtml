@@ -1,0 +1,48 @@
+﻿@model Interactive_guide2.Models.orangs
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>orangs</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.info)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.info)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.poss_dis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.poss_dis)
+        </dd>
+        <dd>
+            <img src="~/images/@Model.imgfile" height="150" />
+            <br />@Model.imgfile
+
+        </dd>
+
+        <dd>
+            <video src="~/videos/@Model.videofile" />
+            <br />@Model.videofile
+
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
